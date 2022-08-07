@@ -83,7 +83,7 @@ export function Header() {
             className="shadow-main dark:border dark:border-solid dark:border-gray-700 dark:bg-light-dark dark:text-white"
           />
         </div>
-        <Logo />
+        {/* <Logo /> */}
         {isMounted && ['xs', 'sm', 'md', 'lg'].indexOf(breakpoint) == -1 && (
           <MenuItems />
         )}
