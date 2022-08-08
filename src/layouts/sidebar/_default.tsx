@@ -20,6 +20,7 @@ import { InfoCircle } from '@/components/icons/info-circle';
 
 //images
 import AuthorImage from '@/assets/images/author.jpg';
+import { useTranslation } from 'next-i18next';
 
 export const menuItems = [
   {
@@ -103,6 +104,7 @@ type SidebarProps = {
 
 export default function Sidebar({ className }: SidebarProps) {
   const { closeDrawer } = useDrawer();
+  const { t } = useTranslation();
   return (
     <aside
       className={cn(
@@ -138,7 +140,7 @@ export default function Sidebar({ className }: SidebarProps) {
             {menuItems.map((item, index) => (
               <MenuItem
                 key={index}
-                name={item.name}
+                name={t(item.name)}
                 href={item.href}
                 icon={item.icon}
                 dropdownItems={item.dropdownItems}

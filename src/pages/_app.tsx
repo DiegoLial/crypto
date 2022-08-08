@@ -10,6 +10,8 @@ import DrawersContainer from '@/components/drawer-views/container';
 import SettingsButton from '@/components/settings/settings-button';
 import SettingsDrawer from '@/components/settings/settings-drawer';
 import { WalletProvider } from '@/lib/hooks/use-connect';
+import { appWithTranslation } from 'next-i18next';
+
 // base css file
 import 'swiper/css';
 import '@/assets/css/scrollbar.css';
@@ -55,4 +57,4 @@ function CustomApp({ Component, pageProps }: AppPropsWithLayout) {
   );
 }
 
-export default CustomApp;
+export default appWithTranslation(CustomApp);

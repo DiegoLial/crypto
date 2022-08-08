@@ -14,6 +14,8 @@ import { SearchIcon } from '@/components/icons/search';
 import FarmList from '@/components/farms/list';
 import ActiveLink from '@/components/ui/links/active-link';
 import { FarmsData } from '@/data/static/farms-data';
+import { GetStaticProps } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const sort = [
   { id: 1, name: 'Hot' },
@@ -243,6 +245,14 @@ const FarmsPage: NextPageWithLayout = () => {
 
 FarmsPage.getLayout = function getLayout(page) {
   return <DashboardLayout>{page}</DashboardLayout>;
+};
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
 };
 
 export default FarmsPage;

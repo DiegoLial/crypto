@@ -14,10 +14,13 @@ import Avatar from '@/components/ui/avatar';
 import TopupButton from '@/components/ui/topup-button';
 //images
 import AuthorImage from '@/assets/images/author.jpg';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
-    props: {},
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
   };
 };
 
